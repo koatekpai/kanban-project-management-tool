@@ -6,8 +6,12 @@ import com.galland.kanban_pm_tool.domain.Project;
 
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Long>{
-	
+	//find a project by its identifier
 	Project findByProjectIdentifier(String projectId);
+
+	//find all projects using iterable
+	@Override
+	Iterable<Project> findAll();
 	
 
 }
