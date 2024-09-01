@@ -5,12 +5,9 @@ import org.springframework.stereotype.Repository;
 import com.galland.kanban_pm_tool.domain.Project;
 
 @Repository
-public interface ProjectRepository extends CrudRepository<Project, String>{
+public interface ProjectRepository extends CrudRepository<Project, Long>{
 	
-	@Override
-	default Iterable<Project> findAllById(Iterable<String> ids){
-		//TODO :Make sure there is a proper check
-		return null;
-	}
+	Project findByProjectIdentifier(String projectId);
+	
 
 }
