@@ -25,7 +25,7 @@ public class Project {
 	private Date startDate;
 	private Date endDate;
 	@NotBlank(message = "Project identifier is required")
-	@Size(min=4, max=5, message="Please use 4 or 5 characters for Identifier")
+	@Size(min = 4, max = 5, message = "Please use 4 or 5 characters for Identifier")
 	@Column(updatable = false, unique = true)
 	private String projectIdentifier;
 	private String description;
@@ -33,9 +33,9 @@ public class Project {
 	private Date createdAt;
 	@JsonFormat(pattern = "yyyy-mm-dd")
 	private Date updatedAt;
-	
+
 	public Project() {
-		//Constructor
+		// Constructor
 	}
 
 	public String getProjectName() {
@@ -81,11 +81,13 @@ public class Project {
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-	//Generic setter cretedAt
+
+	// Generic setter cretedAt
 	public Date setCreatedAt(Date createdAt) {
 		return this.createdAt = createdAt;
 	}
-	//Sets the createdAt date
+
+	// Sets the createdAt date
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -94,27 +96,32 @@ public class Project {
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-	//Sets the updated date when the object is updated
+
+	// Sets the updated date when the object is updated
 	@PreUpdate
 	public void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	//Generic setter updatedAt
+
+	// Generic setter updatedAt
 	public Date setUpdatedAt(Date updatedAt) {
 		return this.updatedAt = updatedAt;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setId(Long id) {
 		this.Id = id;
 	}
+
 	public Long getId() {
 		return Id;
 	}
 
-	
 }
